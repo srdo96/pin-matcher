@@ -15,3 +15,20 @@ function generatePin() {
   pinOutput.style.fontSize = "2rem";
   pinOutput.value = pin;
 }
+
+document.getElementById("key-pad").addEventListener("click", function (event) {
+  const number = event.target.innerText;
+  const displayText = document.getElementById("typed-number");
+  let previousNum = displayText.value;
+  if (isNaN(number)) {
+    if (number == "C") {
+      displayText.value = "";
+    }
+    if (number == "<") {
+      displayText.value = previousNum.substring(0, previousNum.length - 1);
+    }
+  } else {
+    const newNum = previousNum + number;
+    displayText.value = newNum;
+  }
+});
