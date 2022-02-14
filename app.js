@@ -14,10 +14,26 @@ function generatePin() {
   displayStyle("pin-output");
   pinOutput.value = pin;
 }
+
 function displayStyle(displayName) {
   const display = document.getElementById(displayName);
   display.style.textAlign = "center";
   display.style.fontSize = "2rem";
+}
+
+function verifyPin() {
+  const pin = document.getElementById("pin-output").value;
+  const typedPin = document.getElementById("typed-number").value;
+  console.log("pin: ", pin, "typed: ", typedPin);
+  const match = document.getElementById("match");
+  const notMatch = document.getElementById("notMatch");
+  if (pin == typedPin) {
+    match.style.display = "block";
+    notMatch.style.display = "none";
+  } else {
+    notMatch.style.display = "block";
+    match.style.display = "none";
+  }
 }
 
 document.getElementById("key-pad").addEventListener("click", function (event) {
