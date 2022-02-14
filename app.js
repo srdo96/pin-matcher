@@ -11,12 +11,17 @@ function getPin() {
 function generatePin() {
   const pin = getPin();
   const pinOutput = document.getElementById("pin-output");
-  pinOutput.style.textAlign = "center";
-  pinOutput.style.fontSize = "2rem";
+  displayStyle("pin-output");
   pinOutput.value = pin;
+}
+function displayStyle(displayName) {
+  const display = document.getElementById(displayName);
+  display.style.textAlign = "center";
+  display.style.fontSize = "2rem";
 }
 
 document.getElementById("key-pad").addEventListener("click", function (event) {
+  displayStyle("typed-number");
   const number = event.target.innerText;
   const displayText = document.getElementById("typed-number");
   let previousNum = displayText.value;
